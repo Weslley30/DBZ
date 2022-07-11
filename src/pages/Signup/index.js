@@ -39,22 +39,22 @@ const Signup = () => {
             <C.Label>SISTEMA DE LOGIN</C.Label>
             <C.Content>
                 <Input 
-                    type="email"
+                    type="text"
                     placeholder="Digite seu Email"
-                    value={email}
-                    onChange={(e) => [setEmail(e.target.value), setError("")]}
+                    defaultValue={email}
+                    onChange={(e) => setEmail(e.target.value)}
                 />
                 <Input 
-                    type="email"
+                    type="text"
                     placeholder="Confirme seu Email"
-                    value={emailConf}
-                    onChange={(e) => [setEmailConf(e.target.value), setError("")]}
+                    defaultValue={emailConf}
+                    onChange={(e) => setEmailConf(e.target.value)}
                 />
                 <Input 
-                    type="password"
+                    type="text"
                     placeholder="Digite sua senha"
-                    value={senha}
-                    onChanger={(e) => [setSenha(e.target.value), setError("")]}
+                    defaultValue={senha}
+                    onChanger={(e) => setSenha(e.target.value)}
                 />
                 <C.labelError>{error}</C.labelError>
                 <Button Text="Increva-se" onClick={handleSignup}/>

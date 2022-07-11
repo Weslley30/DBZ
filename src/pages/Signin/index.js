@@ -36,13 +36,16 @@ const Signin = () => {
                 <Input 
                     type="email"
                     placeholder="Digite seu email"
-                    value={email}
-                    onChange={(e) => [setEmail(e.target.value), setError("")]}
+                    defaultValue={email}
+                    onChange={(e) => {
+                        let Dades = e.target.value;
+                        setEmail(Dades)
+                    }}
                 />
                 <Input
                     type="password"
                     placeholder="Digite sua senha"
-                    value={senha}
+                    defaultValue={senha}
                     onChange={(e) => [setSenha(e.target.value), setError("")]}
                 />
                 <S.labelError>{error}</S.labelError>
