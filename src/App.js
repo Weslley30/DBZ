@@ -1,13 +1,11 @@
-import GlobalStyle from "./styles/global";
-import RoutesApp from "./routes";
-import { AuthProvider } from "./contexts/auth";
+import styled from "styled-components";
+import RoutesApp from './Component/Routes'
 
 const App = () => {
     return(
-        <AuthProvider>
+        <div>
             <RoutesApp />
-            <GlobalStyle />
-        </AuthProvider>
+        </div>
     );
 }
 
