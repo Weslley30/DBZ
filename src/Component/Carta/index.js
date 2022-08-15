@@ -8,17 +8,17 @@ import Dados from "../../Dados/dados";
 
 export const Carta = () => {
     const navigate = useNavigate()
-    const [dateName, setDateName] = useState('');
 
-    const handleHistory = () =>{
-        navigate(`/${dateName}`)
+    const handleHistory = (date) =>{
+        localStorage.setItem('DadosPersonagem', JSON.stringify(date));
+        navigate(`/${date.Nome}`)
     }
 
     return(
         <Div>
-            {Dados.map((date) => {
+            {Dados.map((date, numero) => {
                 return(
-                    <DivCarta>
+                    <DivCarta key={numero}>
                         <img src={date.img} />
                         <p><b>Nome: {date.Nome}</b></p>
                         <p><b>HP: {date.HP}</b></p>
@@ -27,10 +27,7 @@ export const Carta = () => {
                         <p><b>DEF: {date.DEF}</b></p>
                         <p><b>LV: {date.LV}</b></p>
                         <p><b>Prox.lv: {date.Prox_lv}</b></p>
-                        <button onClick={async()  => {
-                            setDateName(date.Nome);
-                            handleHistory();
-                        }}>Ver {date.Nome}</button>
+                        <button onClick={() => handleHistory(date)}>Ver {date.Nome}</button>
                     </DivCarta>
                 );
             })}            

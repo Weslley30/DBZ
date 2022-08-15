@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import  * as date  from "../../Dados/arquivos";
 const Infor = () => {
@@ -7,6 +9,13 @@ const Infor = () => {
         navigate("/")
     }
 
+    const [ dadosPersonagem, setDadosPersonagem] = useState([])
+
+    useEffect(() => { 
+        const items = JSON.parse(localStorage.getItem('DadosPersonagem'));
+        setDadosPersonagem(items);
+    });
+
     let { action } = useParams();
 
     return(
@@ -14,6 +23,8 @@ const Infor = () => {
             Test para ver o {action}
 
             <button onClick={handleHistory}>Voltar</button>
+
+            <p>{dadosPersonagem.Nome}</p>
         </div>
     );
 }
